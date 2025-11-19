@@ -1,0 +1,15 @@
+services:
+   redis:
+      image: redis
+      volumes:
+         - saved_data:/data
+
+   rocketcounter:
+      image: rotorocloud/rocket-counter
+      ports:
+         - "0:5000"
+      depends_on:
+         - redis
+         
+volumes:
+   saved_data:
